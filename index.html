@@ -952,6 +952,104 @@
       font-weight: 600;
       color: var(--gray-400);
     }
+
+    /* ─── Article Modal ──────────────────────────── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0,0,11,.72);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      overflow-y: auto;
+      padding: 48px 20px;
+    }
+    .modal-overlay.open {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    .modal-panel {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      max-width: 760px;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      margin: auto;
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      z-index: 10;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(0,0,0,.42);
+      border: none;
+      color: #fff;
+      font-size: 22px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--transition);
+    }
+    .modal-close:hover { background: rgba(0,0,0,.72); }
+    .modal-hero-img {
+      height: 300px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1a0a3c 0%, #2d1b69 50%, #0d1b4b 100%);
+    }
+    .modal-hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .modal-content {
+      padding: 40px 48px 52px;
+    }
+    .modal-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gray-400);
+      margin-bottom: 18px;
+    }
+    .modal-tag {
+      font-family: 'Sora', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--kiara-purple);
+    }
+    .modal-title {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(22px, 3vw, 30px);
+      font-weight: 800;
+      color: var(--gray-900);
+      line-height: 1.22;
+      letter-spacing: -.5px;
+      margin-bottom: 30px;
+    }
+    .modal-body {
+      font-size: 16px;
+      line-height: 1.85;
+      color: var(--gray-700);
+    }
+    .modal-body p { margin-bottom: 22px; }
+    .modal-body p:last-child { margin-bottom: 0; }
+    @media (max-width: 768px) {
+      .modal-overlay  { padding: 20px 12px; }
+      .modal-hero-img { height: 200px; }
+      .modal-content  { padding: 28px 22px 38px; }
+    }
   </style>
 </head>
 <body>
@@ -1051,7 +1149,7 @@
               <span class="meta-dot"></span>
               <span>5 min read</span>
             </div>
-            <a href="#" class="read-more">Read article <i class="ri-arrow-right-line"></i></a>
+            <a href="#" class="read-more" data-article="vc-founders-fund">Read article <i class="ri-arrow-right-line"></i></a>
           </div>
         </div>
       </article>
@@ -1085,7 +1183,7 @@
         </div>
         <h2 class="card-title">Founders Fund Just Bet $100M on Brazil. The Other 67% of the Market Missed the Signal.</h2>
         <p class="card-excerpt">Brazil's VC funding collapsed 67% in early 2026. Then Founders Fund wrote a $100M check into Enter at a $1.2B valuation. The signal isn't that Brazil is back — it's that exceptional companies never needed the market's permission.</p>
-        <a href="#" class="read-more">Read article <i class="ri-arrow-right-line"></i></a>
+        <a href="#" class="read-more" data-article="vc-founders-fund">Read article <i class="ri-arrow-right-line"></i></a>
       </div>
     </article>
 
@@ -1109,7 +1207,7 @@
         </div>
         <h2 class="card-title">88% of AI Agents Never Ship. The 12% Who Do Return 171% ROI.</h2>
         <p class="card-excerpt">Almost every enterprise claims to have adopted agentic AI. Only one in nine runs it in production. The gap isn't technical — it's the governance layer that most organizations skipped entirely on the way from demo to deployment.</p>
-        <a href="#" class="read-more">Read article <i class="ri-arrow-right-line"></i></a>
+        <a href="#" class="read-more" data-article="ai-agents-production">Read article <i class="ri-arrow-right-line"></i></a>
       </div>
     </article>
 
@@ -1133,13 +1231,36 @@
         </div>
         <h2 class="card-title">Drex Dropped Blockchain. That's the Right Call.</h2>
         <p class="card-excerpt">Brazil's Banco Central walked away from DLT after the Phase 1 pilot exposed an irresolvable tension: blockchain privacy solutions couldn't meet financial secrecy requirements. What replaces it is less exciting — and far more consequential for credit markets.</p>
-        <a href="#" class="read-more">Read article <i class="ri-arrow-right-line"></i></a>
+        <a href="#" class="read-more" data-article="drex-blockchain">Read article <i class="ri-arrow-right-line"></i></a>
       </div>
     </article>
 
   </div>
 
 </main>
+
+<!-- ══════════════════════════════════════════════
+     ARTICLE MODAL
+══════════════════════════════════════════════ -->
+<div id="article-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-panel">
+    <button class="modal-close" id="modal-close" aria-label="Fechar artigo"><i class="ri-close-line"></i></button>
+    <div class="modal-hero-img">
+      <img id="modal-img" src="" alt="" />
+    </div>
+    <div class="modal-content">
+      <div class="modal-meta">
+        <span class="modal-tag" id="modal-tag"></span>
+        <span>·</span>
+        <time id="modal-date"></time>
+        <span>·</span>
+        <span id="modal-readtime"></span>
+      </div>
+      <h1 class="modal-title" id="modal-title"></h1>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+</div>
 
 <!-- ══════════════════════════════════════════════
      FOOTER
@@ -1236,6 +1357,91 @@
       ? '0 4px 20px rgba(118,100,250,.12)'
       : 'none';
   }, { passive: true });
+
+  /* ── Article Modal ──────────────────────────────── */
+  const ARTICLES = {
+    'vc-founders-fund': {
+      tag: 'Venture Capital',
+      date: 'May 25, 2026',
+      readtime: '5 min read',
+      img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80&auto=format&fit=crop',
+      title: 'Founders Fund Just Bet $100M on Brazil. The Other 67% of the Market Missed the Signal.',
+      body: `
+        <p>Brazil's overall VC funding collapsed 67% year-over-year in the first two months of 2026. $199M raised across 18 rounds — compared to $608M across 32 rounds in the same period of 2025. The numbers are brutal.</p>
+        <p>Then Founders Fund wrote a $100M check into Enter, a Brazilian legaltech, at a $1.2B valuation.</p>
+        <p>The reflex interpretation is that this is an exception — an anomaly in a broken market. That's the wrong read.</p>
+        <p>Founders Fund doesn't do sympathy rounds. They have a specific thesis: back founders who are right about something important before the consensus forms. Their bet on Enter isn't about Brazil recovering. It's about Enter having built something that works at a scale that makes the macro noise irrelevant.</p>
+        <p>This is the structural pattern of contracting markets. When capital gets scarce, the middle disappears first. The B+ companies that would have raised $10–20M in 2021 on a strong deck and warm intros can't close rounds today. That's not a problem — it's a filter. The A+ companies still get funded. They get funded faster, cleaner, and with better terms for both sides.</p>
+        <p>Brazil's election-year uncertainty and persistently high interest rates (Selic still above 12%) are real constraints for growth-stage companies dependent on cheap capital. But early-stage bets on structural market transformations — legaltech, credit infrastructure, compliance automation — don't need cheap capital to make sense. They need a market that's large, structurally broken, and open to disruption. Brazil has all three.</p>
+        <p>The question every VC sitting out the Brazil market in 2026 should be asking: are you missing the signal because the noise is too loud?</p>
+      `
+    },
+    'ai-agents-production': {
+      tag: 'Artificial Intelligence',
+      date: 'May 25, 2026',
+      readtime: '4 min read',
+      img: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&q=80&auto=format&fit=crop',
+      title: '88% of AI Agents Never Ship. The 12% Who Do Return 171% ROI.',
+      body: `
+        <p>Almost four in five enterprises have adopted AI agents in some form. Only one in nine runs them in production. That gap — between deployment and production — is where most of the money, time, and credibility in enterprise AI is being lost right now.</p>
+        <p>Gartner projects that more than 40% of agentic AI projects will be cancelled by 2027. The reasons are consistent: escalating costs that exceed projections, unclear business value, and inadequate risk controls.</p>
+        <p>The paradox is that the survivors report extraordinary returns. 171% ROI on deployed agentic systems. 192% in the US. The technology works. The question is whether organizations are structured to deploy it.</p>
+        <p>The failure pattern is almost always the same. A team builds a compelling demo. Leadership approves budget. The demo gets expanded to a pilot. The pilot runs into edge cases the demo didn't have. Edge cases require governance policies the organization doesn't have. Governance requires data infrastructure the organization hasn't built. The project stalls. The vendor gets blamed.</p>
+        <p>The bottleneck is never the model. It's the layer between the model and the enterprise: data readiness, access controls, human-in-the-loop workflows, audit trails, error handling. 60% of AI projects abandoned cite insufficient AI-ready data as the primary cause. The models are ready. The organizations aren't.</p>
+        <p>For founders building in the agentic layer, this creates a precise opportunity. The $50B+ being spent on enterprise AI isn't looking for better models — it's looking for the governance, orchestration, and integration layer that makes the models deployable. The application layer is open. The moat will be built by whoever understands enterprise constraints better than the enterprise does.</p>
+      `
+    },
+    'drex-blockchain': {
+      tag: 'Financial Innovation',
+      date: 'May 25, 2026',
+      readtime: '4 min read',
+      img: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200&q=80&auto=format&fit=crop',
+      title: "Drex Dropped Blockchain. That's the Right Call.",
+      body: `
+        <p>Brazil's Banco Central spent years building Drex on distributed ledger technology. Then the Phase 1 pilot returned a clear conclusion: the architecture didn't work for a regulated environment.</p>
+        <p>The conflict was specific. Blockchain's privacy model — where transaction data is distributed across nodes — created a direct tension with Brazil's financial secrecy laws, which require that the Central Bank maintain supervisory visibility into all transactions. The privacy solutions available for permissioned blockchains introduced complexity that couldn't be resolved at the scale and regulatory specificity the BCB required.</p>
+        <p>So they pivoted. Centralized infrastructure. No distributed ledger. No smart contracts in the first phase.</p>
+        <p>The headlines framed this as a failure. It isn't. It's a precise diagnosis. The BCB ran a real pilot, identified a real constraint, and made the pragmatic call. That's how infrastructure should be built.</p>
+        <p>The new scope is narrower but more immediately useful: a centralized registry for asset encumbrances and collateral tracking across the financial system, with integration into Pix for settlement. This is credit plumbing — not the "programmable money" narrative that surrounded Drex's early announcements, but exactly what Brazil's credit market needs.</p>
+        <p>Brazil has 170 million Pix users and 60 million active Open Finance data-sharing consents. The payment layer works. The next structural gap is credit: who has collateral, where is it registered, and can it move fast enough to support the loan decisions that banks and fintechs are making every day? A centralized, BCB-administered collateral registry solves a real problem that blockchain never could have solved as cleanly.</p>
+        <p>The "programmable money" story will return. The BCB hasn't abandoned DLT — it's deferring it to a phase where the privacy technology has matured. But the immediate impact of Drex will be felt in credit markets, not retail payments. Founders and investors building in credit infrastructure should be paying close attention.</p>
+      `
+    }
+  };
+
+  const modal      = document.getElementById('article-modal');
+  const modalClose = document.getElementById('modal-close');
+
+  function openArticle(id) {
+    const a = ARTICLES[id];
+    if (!a) return;
+    document.getElementById('modal-img').src          = a.img;
+    document.getElementById('modal-img').alt          = a.title;
+    document.getElementById('modal-tag').textContent  = a.tag;
+    document.getElementById('modal-date').textContent = a.date;
+    document.getElementById('modal-readtime').textContent = a.readtime;
+    document.getElementById('modal-title').textContent = a.title;
+    document.getElementById('modal-body').innerHTML   = a.body;
+    modal.classList.add('open');
+    modal.scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  modalClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  document.querySelectorAll('.read-more[data-article]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      openArticle(link.dataset.article);
+    });
+  });
 </script>
 
 </body>
