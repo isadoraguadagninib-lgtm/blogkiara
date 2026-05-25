@@ -925,6 +925,33 @@
       .footer-top            { grid-template-columns: 1fr; gap: 28px; }
       .hero                  { padding: 60px 24px 72px; }
     }
+
+    /* ─── Card meta row (injected articles) ─────── */
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .card-meta .tag {
+      font-family: 'Sora', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--kiara-purple);
+    }
+    .card-meta .dot {
+      font-size: 11px;
+      color: var(--gray-300);
+    }
+    .card-meta time,
+    .card-meta span:not(.tag):not(.dot) {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--gray-400);
+    }
   </style>
 </head>
 <body>
@@ -1001,13 +1028,115 @@
 ══════════════════════════════════════════════ -->
 <main class="main">
 
+  <!-- ── Featured Article ─────────────────────── -->
+  <section class="featured">
+    <div class="featured-wrap">
+      <article class="card-featured">
+        <div class="cf-img">
+          <img
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80&auto=format&fit=crop"
+            alt="Founders Fund Bets $100M on Brazil"
+            onerror="this.setAttribute('data-error','1');this.style.display='none'"
+            loading="lazy"
+          />
+        </div>
+        <div class="cf-body">
+          <span class="cf-label"><i class="ri-flashlight-line"></i> Venture Capital</span>
+          <h2 class="cf-title">Founders Fund Just Bet $100M on Brazil. The Other 67% of the Market Missed the Signal.</h2>
+          <p class="cf-excerpt">Brazil's overall VC funding collapsed 67% year-over-year in early 2026. High interest rates, election-year uncertainty, and a contracting middle market have defined the narrative. Then Founders Fund — which built its thesis on backing founders others weren't willing to bet on — wrote a $100M check into legaltech startup Enter at a $1.2B valuation. The divergence isn't a contradiction. It's a pattern: when the market contracts, the best deals get cleaner.</p>
+          <div class="cf-footer">
+            <div class="cf-meta">
+              <i class="ri-calendar-line"></i>
+              <span>May 25, 2026</span>
+              <span class="meta-dot"></span>
+              <span>5 min read</span>
+            </div>
+            <a href="#" class="read-more">Read article <i class="ri-arrow-right-line"></i></a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <!-- ── Articles ──────────────────────────────── -->
   <div class="section-head">
     <h2 class="section-heading">Latest Articles</h2>
   </div>
 
   <div class="cards-grid" id="articles-grid">
-    <!-- Articles are published daily by the Kiara Insights agent -->
+
+    <!-- Article 1 — Venture Capital · May 25 2026 -->
+    <article class="card">
+      <div class="card-img">
+        <img
+          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80&auto=format&fit=crop"
+          alt="Founders Fund Bets $100M on Brazil"
+          onerror="this.setAttribute('data-error','1');this.style.display='none'"
+          loading="lazy"
+        />
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="tag">Venture Capital</span>
+          <span class="dot">·</span>
+          <time>May 25, 2026</time>
+          <span class="dot">·</span>
+          <span>5 min read</span>
+        </div>
+        <h2 class="card-title">Founders Fund Just Bet $100M on Brazil. The Other 67% of the Market Missed the Signal.</h2>
+        <p class="card-excerpt">Brazil's VC funding collapsed 67% in early 2026. Then Founders Fund wrote a $100M check into Enter at a $1.2B valuation. The signal isn't that Brazil is back — it's that exceptional companies never needed the market's permission.</p>
+        <a href="#" class="read-more">Read article <i class="ri-arrow-right-line"></i></a>
+      </div>
+    </article>
+
+    <!-- Article 2 — Artificial Intelligence · May 25 2026 -->
+    <article class="card">
+      <div class="card-img">
+        <img
+          src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80&auto=format&fit=crop"
+          alt="Agentic AI Enterprise Failure Rate"
+          onerror="this.setAttribute('data-error','1');this.style.display='none'"
+          loading="lazy"
+        />
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="tag">Artificial Intelligence</span>
+          <span class="dot">·</span>
+          <time>May 25, 2026</time>
+          <span class="dot">·</span>
+          <span>4 min read</span>
+        </div>
+        <h2 class="card-title">88% of AI Agents Never Ship. The 12% Who Do Return 171% ROI.</h2>
+        <p class="card-excerpt">Almost every enterprise claims to have adopted agentic AI. Only one in nine runs it in production. The gap isn't technical — it's the governance layer that most organizations skipped entirely on the way from demo to deployment.</p>
+        <a href="#" class="read-more">Read article <i class="ri-arrow-right-line"></i></a>
+      </div>
+    </article>
+
+    <!-- Article 3 — Financial Innovation · May 25 2026 -->
+    <article class="card">
+      <div class="card-img">
+        <img
+          src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80&auto=format&fit=crop"
+          alt="Drex Drops Blockchain"
+          onerror="this.setAttribute('data-error','1');this.style.display='none'"
+          loading="lazy"
+        />
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="tag">Financial Innovation</span>
+          <span class="dot">·</span>
+          <time>May 25, 2026</time>
+          <span class="dot">·</span>
+          <span>4 min read</span>
+        </div>
+        <h2 class="card-title">Drex Dropped Blockchain. That's the Right Call.</h2>
+        <p class="card-excerpt">Brazil's Banco Central walked away from DLT after the Phase 1 pilot exposed an irresolvable tension: blockchain privacy solutions couldn't meet financial secrecy requirements. What replaces it is less exciting — and far more consequential for credit markets.</p>
+        <a href="#" class="read-more">Read article <i class="ri-arrow-right-line"></i></a>
+      </div>
+    </article>
+
   </div>
 
 </main>
