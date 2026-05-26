@@ -1388,6 +1388,33 @@
     });
   });
 
+  /* ── Search ────────────────────────────────────── */
+  function runSearch(query) {
+    const q = query.trim().toLowerCase();
+    const cards = document.querySelectorAll('#articles-grid .card');
+
+    // Reset topic filter when searching
+    if (q) {
+      document.querySelectorAll('.topic-btn').forEach(b => b.classList.remove('active'));
+      document.querySelector('.topic-btn').classList.add('active'); // reset to All
+    }
+
+    cards.forEach(card => {
+      const title   = (card.querySelector('.card-title')   || {}).textContent || '';
+      const excerpt = (card.querySelector('.card-excerpt') || {}).textContent || '';
+      const tag     = (card.querySelector('.tag')          || {}).textContent || '';
+      const match   = !q || (title + excerpt + tag).toLowerCase().includes(q);
+      card.style.display = match ? '' : 'none';
+    });
+  }
+
+  const searchInput = document.querySelector('.hero-search input');
+  const searchBtn   = document.querySelector('.hero-search button');
+
+  searchBtn.addEventListener('click', () => runSearch(searchInput.value));
+  searchInput.addEventListener('keydown', e => { if (e.key === 'Enter') runSearch(searchInput.value); });
+  searchInput.addEventListener('input', () => runSearch(searchInput.value));
+
   /* ── Header shadow on scroll ───────────────────── */
   const header = document.querySelector('header');
   window.addEventListener('scroll', () => {
