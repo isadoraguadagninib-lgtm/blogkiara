@@ -1020,6 +1020,78 @@
 
   <div class="cards-grid" id="articles-grid">
 
+    <!-- Article — Venture Capital · June 1 2026 -->
+    <article class="card">
+      <div class="card-img">
+        <img
+          src="https://images.unsplash.com/photo-1559526324-593bc073d938?w=800&q=80&auto=format&fit=crop"
+          alt="OpenAI IPO trillion dollar valuation public markets"
+          onerror="this.setAttribute('data-error','1');this.style.display='none'"
+          loading="lazy"
+        />
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="tag">Venture Capital</span>
+          <span class="dot">·</span>
+          <time>June 1, 2026</time>
+          <span class="dot">·</span>
+          <span>5 min read</span>
+        </div>
+        <h2 class="card-title">OpenAI Filed for a $1 Trillion IPO While Burning $14 Billion a Year. Public Markets Will Price What Private Capital Couldn't.</h2>
+        <p class="card-excerpt">The S-1 puts a number on what the model layer actually costs: $25B in revenue, $14B in projected operating losses for 2026 alone, a 33% gross margin, and a $207B capital requirement through 2030. The IPO isn't a celebration — it's the only pool large enough to close the gap.</p>
+        <a href="#" class="read-more" data-article="vc-openai-ipo-math">Read article <i class="ri-arrow-right-line"></i></a>
+      </div>
+    </article>
+
+    <!-- Article — Artificial Intelligence · June 1 2026 -->
+    <article class="card">
+      <div class="card-img">
+        <img
+          src="https://images.unsplash.com/photo-1688592550695-e2e93f31df47?w=800&q=80&auto=format&fit=crop"
+          alt="DeepSeek V4 Pro price cut LatAm founders AI cost"
+          onerror="this.setAttribute('data-error','1');this.style.display='none'"
+          loading="lazy"
+        />
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="tag">Artificial Intelligence</span>
+          <span class="dot">·</span>
+          <time>June 1, 2026</time>
+          <span class="dot">·</span>
+          <span>4 min read</span>
+        </div>
+        <h2 class="card-title">DeepSeek Made Its 75% Price Cut Permanent. For LatAm Founders, the AI Cost Floor Just Collapsed.</h2>
+        <p class="card-excerpt">At $0.435 per million input tokens — one-thirty-fourth of Claude Opus 4.7 — DeepSeek V4 Pro's permanent pricing removes the cost constraint that made high-volume AI products economically unviable for most Brazilian mid-market companies. This is not an incremental improvement. It's a market expansion event.</p>
+        <a href="#" class="read-more" data-article="ai-deepseek-latam">Read article <i class="ri-arrow-right-line"></i></a>
+      </div>
+    </article>
+
+    <!-- Article — Venture Capital · June 1 2026 -->
+    <article class="card">
+      <div class="card-img">
+        <img
+          src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&auto=format&fit=crop"
+          alt="Application layer AI revenue Sierra Cognition OpenRouter"
+          onerror="this.setAttribute('data-error','1');this.style.display='none'"
+          loading="lazy"
+        />
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="tag">Venture Capital</span>
+          <span class="dot">·</span>
+          <time>June 1, 2026</time>
+          <span class="dot">·</span>
+          <span>5 min read</span>
+        </div>
+        <h2 class="card-title">The Application Layer Thesis Has Revenue Numbers Now. The Founders Who Moved Early Are Pulling Away.</h2>
+        <p class="card-excerpt">Sierra hit $150M ARR in 8 quarters at a $15.8B valuation. Cognition's Devin generated $492M ARR in 12 months at $25B. OpenRouter routes 25 trillion tokens per week at $1.3B. The conviction argument for application-layer AI no longer needs theorizing — it has revenue lines.</p>
+        <a href="#" class="read-more" data-article="vc-app-layer-revenue">Read article <i class="ri-arrow-right-line"></i></a>
+      </div>
+    </article>
+
     <!-- Article — Venture Capital · May 31 2026 -->
     <article class="card">
       <div class="card-img">
@@ -1455,6 +1527,51 @@
 
   /* ── Article Modal ──────────────────────────────── */
   const ARTICLES = {
+    'vc-openai-ipo-math': {
+      tag: 'Venture Capital',
+      date: 'June 1, 2026',
+      readtime: '5 min read',
+      img: 'https://images.unsplash.com/photo-1559526324-593bc073d938?w=1200&q=80&auto=format&fit=crop',
+      title: "OpenAI Filed for a $1 Trillion IPO While Burning $14 Billion a Year. Public Markets Will Price What Private Capital Couldn't.",
+      body: `
+        <p>OpenAI's confidential S-1, filed May 22, contains a number that private investors never had to price: the gross margin. At 33 percent. For a company targeting a $1 trillion public valuation, that's the structural constraint public markets will spend the next decade trying to resolve.</p>
+        <p>The financial profile is stark. $25 billion in annualized revenue — the fastest revenue ramp in corporate history. $14 billion in projected operating losses for 2026. A negative 122 percent non-GAAP operating margin for Q1. And a $207 billion capital requirement through 2030, per HSBC's modeling, just to honor existing compute commitments. The IPO isn't Sam Altman declaring victory. It's the realization that public capital is the only pool deep enough to fund what OpenAI has committed to building.</p>
+        <p>The timing is not incidental. OpenAI filed two days after a jury dismissed Elon Musk's lawsuit — removing the last meaningful legal obstacle. It filed as Anthropic closed a $65 billion round at a $965 billion post-money valuation, surpassing OpenAI's own $852 billion private mark for the first time. The company that invented modern large language models is now the second-most-valuable AI startup in the world, and its S-1 is the financial document that will explain how that happened.</p>
+        <p>The public market math is where the story gets structurally important. A 33 percent gross margin means that for every dollar of revenue, approximately 67 cents goes to compute costs before paying a single employee or building a single product. At $25 billion in annualized revenue, that's roughly $16.75 billion per year in inference compute — a number that rises as usage scales. The path to profitability requires either a dramatic compression in compute costs or a shift in product mix toward higher-margin enterprise software. Both are possible. Neither is immediate.</p>
+        <p>For the application layer, the S-1 math tells a precise story. Foundation model companies are building trillion-dollar businesses with the economics of semiconductor manufacturing: capital-intensive, operationally complex, with gross margins that improve slowly and only at extreme scale. The application layer doesn't carry this burden. A well-built domain-specific AI product running on API access inherits frontier intelligence at commodity pricing and captures margin from domain expertise and distribution that no foundation lab can replicate.</p>
+        <p>When OpenAI goes public at or above $1 trillion, it will mark the exact moment the intelligence layer is priced as infrastructure — durable, essential, and structurally expensive to run. Every company building on top of that infrastructure will need to answer a question the S-1 cannot answer for them: what do you own that no model can replicate at the next price point?</p>
+      `
+    },
+    'ai-deepseek-latam': {
+      tag: 'Artificial Intelligence',
+      date: 'June 1, 2026',
+      readtime: '4 min read',
+      img: 'https://images.unsplash.com/photo-1688592550695-e2e93f31df47?w=1200&q=80&auto=format&fit=crop',
+      title: "DeepSeek Made Its 75% Price Cut Permanent. For LatAm Founders, the AI Cost Floor Just Collapsed.",
+      body: `
+        <p>Six months ago, the economics of building a high-volume AI product in Brazil looked like this: $15 per million input tokens to Claude Opus, $10 to GPT-4 equivalent, and margin pressure that made any consumer-facing AI product with high inference volume essentially impossible to price for the Brazilian market. On May 22, DeepSeek changed those numbers permanently.</p>
+        <p>DeepSeek V4 Pro's permanent pricing — $0.435 per million input tokens, $0.87 per million output — isn't a promotional rate. It's the new floor. The model runs 1.6 trillion parameters, 49 billion activated per token, on a 1 million token context window. It scores 80.6% on SWE-bench Verified, within striking distance of Claude Opus 4.7 and GPT-5.5 on real-world coding tasks. MIT-licensed and openly available on Hugging Face. NIST's independent CAISI evaluation in May 2026 passed it on every enterprise safety benchmark.</p>
+        <p>The LatAm calculus changes here specifically. The $15-per-million Claude Opus pricing was a real barrier for startups building in markets where B2B software prices are compressed relative to North America. A Brazilian legaltech automating high-volume contract review, a healthtech processing clinical notes at scale, a fintech running credit underwriting inference across millions of applications — all of these products required either pricing structures that didn't work for the Brazilian market or model quality compromises that didn't work for regulated industries. At $0.435, both constraints collapse simultaneously.</p>
+        <p>The same workloads that were economically marginal at $15 are economically comfortable at a 97 percent lower cost. This is not an incremental efficiency improvement. It's a threshold crossing — the difference between a product category that can exist in a market and one that can't.</p>
+        <p>The defensibility question shifts as a result. When the best open-weight frontier model costs one thirty-fourth of the best closed model and performs within 3 to 5 percentage points on benchmark tasks, model selection stops being a strategic decision and becomes a cost optimization decision. The moat was never in the model access. The permanent price collapse just makes that fact impossible to rationalize around.</p>
+        <p>For LatAm founders, the signal is precise: the intelligence commodity is now priced for your market. The barrier isn't compute cost anymore. The question is what proprietary data, what domain context, and what distribution advantages you bring to a layer where the intelligence itself is approaching free — and whether you're building for that world or still pricing for the one that existed six months ago.</p>
+      `
+    },
+    'vc-app-layer-revenue': {
+      tag: 'Venture Capital',
+      date: 'June 1, 2026',
+      readtime: '5 min read',
+      img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80&auto=format&fit=crop',
+      title: "The Application Layer Thesis Has Revenue Numbers Now. The Founders Who Moved Early Are Pulling Away.",
+      body: `
+        <p>Twelve months ago, the application-layer AI thesis was a conviction argument. There were enough companies building undifferentiated products on foundation model APIs that the skeptics had a point: without proprietary data and real workflow integration, the differentiation story was structurally thin. Today, the thesis has revenue lines — and they're significant enough to stop being theoretical.</p>
+        <p>Sierra closed a $950 million Series E at $15.8 billion on May 4. $150 million in annualized recurring revenue, reached in eight quarters — faster than Salesforce, faster than Workday, faster than any enterprise software company in that range. More than 40 percent of the Fortune 50 are customers. The product is AI customer service agents: deployed, billing, and handling billions of interactions from mortgage refinancing to insurance claims processing. Founded by Bret Taylor — simultaneously OpenAI's chairman — and Clay Bavor. The dual role isn't a conflict. It's the most precise possible expression of the thesis: model layer becomes infrastructure, application layer captures the margin.</p>
+        <p>Cognition raised $1 billion at a $25 billion pre-money valuation on May 27, with Devin generating $492 million in annualized revenue — up from $37 million twelve months earlier. That's a 13x revenue increase in a year for an autonomous coding agent that doesn't autocomplete code but completes software engineering tasks from specification to deployment, without a human in the loop for each step. The unit of value shifted from the token to the completed task. The economics changed with it.</p>
+        <p>OpenRouter closed a $113 million Series B at $1.3 billion, routing 25 trillion tokens per week across 400-plus models, backed by Google CapitalG, NVIDIA, Databricks, and Snowflake simultaneously. Four of the most important compute and data infrastructure companies in enterprise technology wrote checks into the company abstracting model choice away from enterprises. When strategic investors with competing interests converge on the same infrastructure bet, the infrastructure thesis is usually correct.</p>
+        <p>The pattern across all three is identical. The companies generating real revenue didn't build the best AI features. They identified a specific enterprise workflow — customer experience, software development, model routing — and went deep enough to become operationally irreplaceable. Sierra's agents handle mortgage refinancing. Devin closes engineering tickets. OpenRouter manages inference cost and latency for production systems. None of these positions are vulnerable to model upgrades. They get stronger with every model upgrade.</p>
+        <p>The Brazil corollary is direct. The application-layer revenue pattern emerging in US enterprise markets exists in a more concentrated form in Brazilian verticals that are both structurally larger and less competed. The credit underwriting workflow a Brazilian fintech owns at the document-processing layer is the structural analog to what Devin owns in software development. The data moat, the integration depth, the domain knowledge — those are the same advantages in different verticals. The question for every early-stage AI investor in LatAm isn't whether the application layer generates revenue. Sierra and Cognition have answered that. The question is whether the founders you're backing are building workflow depth or feature breadth — and whether they know the difference before they run out of runway to find out.</p>
+      `
+    },
     'vc-anthropic-65b': {
       tag: 'Venture Capital',
       date: 'May 30, 2026',
