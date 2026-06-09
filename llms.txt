@@ -1,0 +1,34 @@
+# Kiara Capital — Insights
+
+> Venture capital intelligence, startup ecosystem analysis, financial innovation and AI — in Brazil and across the globe.
+
+## About
+
+Kiara Capital is a venture capital firm backing exceptional founders building at the intersection of AI and financial services in Brazil and Latin America. We focus on the application and data layer — not infrastructure — where we believe the most defensible fintech companies will be built.
+
+**Website:** https://www.kiara.capital/
+**Insights blog:** https://insights.kiara.capital/
+
+## Investment Thesis
+
+- AI at the application and data layer — not infrastructure, not LLMs
+- Agentic finance — credit, fraud, compliance, wealth management rebuilt from scratch
+- Data moats — proprietary data as defensible competitive advantage
+- Intelligent workflows — AI transforming SMB ERPs, accounting, fiduciary services, KYC
+- Accessible finance — making complex financial processes scalable
+- Brazil and Latin America as structural opportunity
+
+## Portfolio
+
+Astride, Payana, Nexa Finance, Rinne, Lugui, BOND, W (stealth)
+
+## Content
+
+Kiara Insights publishes daily articles on:
+- Venture Capital — deal flow, fund strategy, LP dynamics (Brazil and global)
+- Artificial Intelligence — agentic AI, enterprise adoption, model releases
+- Financial Innovation — Open Finance, Pix, Drex, neobanks, payment infrastructure
+- Startups — founding stories, distribution models, early traction signals
+- Regulation — CVM, Banco Central, SEC rulings and their implications
+
+All articles are written in the analytical, contrarian voice of Kiara's investment team. Content is for informational purposes only and does not constitute investment advice.
